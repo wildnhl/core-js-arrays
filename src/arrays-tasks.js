@@ -517,22 +517,20 @@ function findCommonElements(arr1, arr2) {
  */
 function findLongestIncreasingSubsequence(nums) {
   const copyNums = structuredClone(nums);
-  let index = 0;
-  const ggg = [];
-  copyNums.filter((item, i) => {
-    if (item < copyNums[i - 1]) {
-      ggg.push(nums.slice(index, i));
-      index = i;
-      return 1;
+  let count = 0;
+  copyNums.reduce((acc, item, i, array) => {
+    if (item > array[i + 1]) {
+      if (count < acc) {
+        count = acc;
+      }
+      return acc * 0 + 1;
     }
-    if (copyNums[i + 1] === undefined) {
-      ggg.push(nums.slice(index));
-      return 1;
+    if (count < acc) {
+      count = acc;
     }
-    return 1;
-  });
-  ggg.sort((a, b) => a.length - b.length);
-  return ggg.at(-1).length;
+    return acc + 1;
+  }, 1);
+  return count;
 }
 
 /**
