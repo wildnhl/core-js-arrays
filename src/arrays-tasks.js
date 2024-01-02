@@ -129,8 +129,8 @@ function getStringsLength(arr) {
  *   getAverage([]) => 0
  *   getAverage([ 1, 2, 3 ]) => 2
  *   getAverage([ -1, 1, -1, 1 ]) => 0
- *   getAverage[ 1, 10, 100, 1000 ]  => 277,75
- *   getAverage[ 2, 3, 3 ]  => 2,67
+ *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
+ *   getAverage([ 2, 3, 3 ])  => 2,67
  */
 function getAverage(arr) {
   if (arr.length === 0) return 0;
@@ -149,7 +149,7 @@ function getAverage(arr) {
  * @return {boolean} - True if all strings have the same length, false otherwise.
  *
  * @example
- *    isSameLength(['apple', 'banana', 'cherry']) => true
+ *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
 function isSameLength(arr) {
