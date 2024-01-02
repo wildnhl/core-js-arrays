@@ -25,6 +25,7 @@ function getIntervalArray(start, end) {
   return Array.from({ length: end - start + 1 }, (value) => {
     let newValue = value;
     newValue = newStart;
+
     newStart += 1;
     return newValue;
   });
