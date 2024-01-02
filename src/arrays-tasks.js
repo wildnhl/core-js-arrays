@@ -45,10 +45,8 @@ function getIntervalArray(start, end) {
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
 function sumArrays(arr1, arr2) {
-  const max =
-    arr1.length >= arr2.length ? structuredClone(arr1) : structuredClone(arr2);
-  const min =
-    arr1.length < arr2.length ? structuredClone(arr1) : structuredClone(arr2);
+  const max = arr1.length >= arr2.length ? arr1 : arr2;
+  const min = arr1.length < arr2.length ? arr1 : arr2;
 
   const final = max.map((item, i) =>
     min[i] === undefined ? item + 0 : item + min[i]
@@ -426,7 +424,7 @@ function getFalsyValuesCount(arr) {
 function getIdentityMatrix(n) {
   const arr = Array(n).fill(Array(n).fill(0));
   return arr.map((item, i) => {
-    const copy = structuredClone(item);
+    const copy = [...item];
     copy[i] = 1;
     return copy;
   });
@@ -480,7 +478,7 @@ function getHexRGBValues(arr) {
  *   getMaxItems([ 10, 10, 10, 10 ], 3) => [ 10, 10, 10 ]
  */
 function getMaxItems(arr, n) {
-  const copyArr = structuredClone(arr)
+  const copyArr = [...arr]
     .sort((a, b) => a - b)
     .reverse()
     .slice(0, n);
@@ -517,7 +515,7 @@ function findCommonElements(arr1, arr2) {
  *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => 3
  */
 function findLongestIncreasingSubsequence(nums) {
-  const copyNums = structuredClone(nums);
+  const copyNums = [...nums];
   let count = 0;
   copyNums.reduce((acc, item, i, array) => {
     if (item > array[i + 1]) {
@@ -622,7 +620,7 @@ function sortDigitNamesByNumericOrder(arr) {
 function swapHeadAndTail(arr) {
   const first = arr.slice(0, arr.length / 2);
   const last = arr.slice(Math.ceil(arr.length / 2));
-  const newArr = structuredClone(arr);
+  const newArr = [...arr];
   newArr.splice(0, first.length, ...last);
   newArr.splice(Math.ceil(arr.length / 2), last.length, ...first);
   return newArr;
